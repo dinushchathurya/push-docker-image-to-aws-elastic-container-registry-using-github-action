@@ -18,4 +18,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    echo: "Deploying to AWS ECR"
+    steps:
+    - name: Set environment variable
+      run: echo "Hello World"
