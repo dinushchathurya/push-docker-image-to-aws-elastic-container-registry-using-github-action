@@ -38,3 +38,13 @@ jobs:
 
       - name: Test environment variable
         run: echo ${{ env.RELEASE_VERSION }}
+
+      - name: Push container to AWS ELastic Container Registry
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: github_action
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.RELEASE_VERSION }}
