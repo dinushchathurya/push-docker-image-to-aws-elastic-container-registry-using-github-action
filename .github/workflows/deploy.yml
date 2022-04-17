@@ -37,8 +37,8 @@ jobs:
       - name: Push container to AWS ELastic Container Registry
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: github_action
+          ECR_REPOSITORY: github-action
           IMAGE_TAG: ${{ env.RELEASE_VERSION }}
         run: |
-          docker build -t 222111869551.dkr.ecr.ap-southeast-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push 222111869551.dkr.ecr.ap-southeast-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG 
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG 
