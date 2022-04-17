@@ -40,7 +40,7 @@ jobs:
           ECR_REPOSITORY: github_action
         run: |
           docker build -t github-action:${{ env.RELEASE_VERSION }} .
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.RELEASE_VERSION }} 
+          docker build $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.RELEASE_VERSION }} 
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.RELEASE_VERSION }}  
         # uses: docker/build-push-action@v2
         # with:
