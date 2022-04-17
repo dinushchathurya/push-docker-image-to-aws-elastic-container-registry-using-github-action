@@ -15,3 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2 
+
+  deploy:
+    runs-on: ubuntu-latest
+    echo: "Deploying to AWS ECR"
